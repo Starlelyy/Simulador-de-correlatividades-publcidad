@@ -253,3 +253,100 @@ main{
   }
 
 }
+
+/* =========================
+   COLORES DEFINITIVOS POR AÑO
+========================= */
+
+/* PRIMER AÑO — VERDE CLARO */
+
+.card.anio-1{
+  border-left: 10px solid #8fd19e !important;
+  background-color: #f3fff5;
+}
+
+/* SEGUNDO AÑO — AMARILLO PASTEL */
+
+.card.anio-2{
+  border-left: 10px solid #f7dc6f !important;
+  background-color: #fffdf2;
+}
+
+/* TERCER AÑO — VERDE OSCURO */
+
+.card.anio-3{
+  border-left: 10px solid #2e8b57 !important;
+  background-color: #eefaf2;
+}
+
+/* CUARTO AÑO — DORADO */
+
+.card.anio-4{
+  border-left: 10px solid #c89b3c !important;
+  background-color: #fffaf0;
+}
+
+/* =========================
+   FONDOS DE SECCIONES
+========================= */
+
+.seccion-anio.anio-1{
+  background: #edf8ef;
+}
+
+.seccion-anio.anio-2{
+  background: #fff9df;
+}
+
+.seccion-anio.anio-3{
+  background: #e4f3e8;
+}
+
+.seccion-anio.anio-4{
+  background: #fff4dc;
+}
+
+/* =========================
+   TITULOS DE AÑO
+========================= */
+
+.seccion-anio{
+
+  margin-bottom:60px;
+
+  padding:25px;
+
+  border-radius:25px;
+
+  box-shadow:
+  0 4px 12px rgba(0,0,0,.08);
+}
+
+.titulo-anio{
+
+  font-size:2rem;
+
+  margin-bottom:25px;
+
+  text-align:center;
+
+  font-weight:700;
+}
+
+/* TITULOS POR COLOR */
+
+.seccion-anio.anio-1 .titulo-anio{
+  color:#5e9c3f;
+}
+
+.seccion-anio.anio-2 .titulo-anio{
+  color:#d4a017;
+}
+
+.seccion-anio.anio-3 .titulo-anio{
+  color:#2e7d32;
+}
+
+.seccion-anio.anio-4 .titulo-anio{
+  color:#b8860b;
+}
