@@ -274,7 +274,7 @@ const materias = [
 ];
 
 /* =========================
-   GRID
+   CONTENEDOR PRINCIPAL
 ========================= */
 
 const grid = document.querySelector(".grid");
@@ -283,7 +283,11 @@ const grid = document.querySelector(".grid");
    CREAR MATERIAS
 ========================= */
 
-function crearMateria(materia, index) {
+function crearMateriaEnContenedor(
+  materia,
+  index,
+  contenedor
+) {
 
   const div = document.createElement("div");
 
@@ -320,8 +324,6 @@ function crearMateria(materia, index) {
 
     verificarDesbloqueo();
 
-    /* EFECTOS */
-
     if (valor === "aprobada") {
 
       lanzarBrillitos(div);
@@ -335,7 +337,7 @@ function crearMateria(materia, index) {
 
   });
 
-  grid.appendChild(div);
+  contenedor.appendChild(div);
 }
 
 /* =========================
@@ -416,8 +418,6 @@ function verificarDesbloqueo() {
       document.getElementById(
         `materia-${i}`
       );
-
-    /* SIN REQUISITOS */
 
     if (!m.requiere) {
 
@@ -522,12 +522,66 @@ function lanzarBrillitos(elemento) {
 }
 
 /* =========================
-   INICIAR
+   CREAR SECCIONES POR AÑO
 ========================= */
 
-materias.forEach((m, i) =>
-  crearMateria(m, i)
-);
+const nombresAnios = {
+  1: "Primer Año",
+  2: "Segundo Año",
+  3: "Tercer Año",
+  4: "Cuarto Año"
+};
+
+for(let anio = 1; anio <= 4; anio++) {
+
+  const seccion =
+    document.createElement("section");
+
+  seccion.className =
+    `seccion-anio anio-${anio}`;
+
+  const titulo =
+    document.createElement("h2");
+
+  titulo.className =
+    "titulo-anio";
+
+  titulo.innerText =
+    nombresAnios[anio];
+
+  const contenedor =
+    document.createElement("div");
+
+  contenedor.className = "grid";
+
+  seccion.appendChild(titulo);
+
+  seccion.appendChild(contenedor);
+
+  grid.parentNode.appendChild(seccion);
+
+  materias
+    .filter(m => m.anio === anio)
+    .forEach((m) => {
+
+      const indexOriginal =
+        materias.indexOf(m);
+
+      crearMateriaEnContenedor(
+        m,
+        indexOriginal,
+        contenedor
+      );
+    });
+}
+
+/* ELIMINAR GRID ORIGINAL */
+
+grid.remove();
+
+/* =========================
+   INICIAR
+========================= */
 
 cargarEstado();
 
